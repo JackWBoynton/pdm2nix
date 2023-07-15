@@ -1,0 +1,23 @@
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
+[tool.pdm.scripts]
+format.shell = "black . && isort ."
+
+[project]
+name = "pdm2nix"
+description = "convert a PDM lockfile to a nix environment"
+authors = [{ name = "Jack Boynton" }]
+dynamic = ["version"]
+requires-python = ">=3.8, <3.12"
+dependencies = [
+    "setuptools>=61.2.0",
+    "click==8.1.3",
+    "pdm",
+    "toml",
+    "resolvelib>=1.0.1",
+]
+
+[project.scripts]
+pdm2nix = "pdm2nix.src.cli:pdm2nix"
