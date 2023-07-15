@@ -61,7 +61,9 @@ def generate_configuration(project_path: str, group: str) -> None:
         candidates[a].prepare(pdm_project.environment)
         print(str(candidates[a]))
         candidates[a]._prepared.obtain(allow_all=True)
-        print(candidates[a]._prepared.link, candidates[a].hashes[candidates[a]._prepared.link])
+        print(candidates[a]._prepared.link, dir(candidates[a]._prepared.link), candidates[a]._prepared.direct_url())
+        # print(candidates[a]._prepared.link, candidates[a].hashes[candidates[a]._prepared.link])
+
 
 
 
